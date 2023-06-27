@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Mask Detection</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='face-mask.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Real Time Face Mask Detection</h1>
+    <img id="video-feed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+
+    <script>
+        const videoFeed = document.getElementById('video-feed');
+
+        function updateVideoFeed() {
+            videoFeed.src = videoFeed.src + '?' + Date.now();
+        }
+
+        setInterval(updateVideoFeed, 500);
+    </script>
+</body>
+</html>
